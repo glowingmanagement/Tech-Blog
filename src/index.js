@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const exphbs = require("express-handlebars");
 const path = require("path");
 const session = require("express-session");
 const connectSessionSequelize = require("connect-session-sequelize");
@@ -26,7 +27,11 @@ const sessionOptions = {
   }),
 };
 
+const hbs = exphbs.create({ helpers: require("./helpers/handlebarsHelpers") });
 const app = express();
+
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 
 app.use(session(sessionOptions));
 app.use(express.json());
