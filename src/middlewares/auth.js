@@ -3,7 +3,8 @@ const auth = (req, res, next) => {
     console.log(`[INFO]: User ${req.session.user.email} is in session`);
     return next();
   }
-  return res.redirect("/auth");
+
+  return res.redirect("/login");
 };
 
 module.exports = auth;
