@@ -1,0 +1,67 @@
+{{> publicNavbar}}
+
+<main class="container">
+  <section class="mt-4 border p-3 rounded-2 bg-light">
+    <h2 class="text-center">Sign Up</h2>
+    <hr />
+    <form class="mt-4" id="signup-form">
+      <div class="mb-3">
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Enter email address"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Enter password"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="password"
+          class="form-control"
+          id="confirmPassword"
+          placeholder="Confirm password"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          placeholder="Enter first name"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          placeholder="Enter last name"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="profileImageUrl"
+          placeholder="Enter profile image URL"
+        />
+      </div>
+      <div id="signup-error"></div>
+      <div class="mb-3 text-center">
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+      </div>
+      <div class="mb-3 text-center error-text">
+        Already have an account.
+        <a href="/login">Login</a>
+        now!
+      </div>
+    </form>
+  </section>
+</main>
