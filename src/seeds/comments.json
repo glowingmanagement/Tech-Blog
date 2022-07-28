@@ -1,5 +1,51 @@
 [{
     "blogId": 1,
     "userId": 1,
-    "content": "blog comment"
-}]
+    "content": "Nice work"
+},
+{
+    "blogId": 2,
+    "userId": 2,
+    "content": "Very informative"
+},
+{
+    "blogId": 1,
+    "userId": 3,
+    "content": "Interesting read"
+},
+{
+    "blogId": 2,
+    "userId": 4,
+    "content": "Love it"
+},
+{
+    "blogId": 1,
+    "userId": 5,
+    "content": "Very helpful"
+},
+{
+    "blogId": 1,
+    "userId": 2,
+    "content": "Super useful"
+},
+{
+    "blogId": 2,
+    "userId": 1,
+    "content": "Bit vague"
+},
+{
+    "blogId": 3,
+    "userId": 3,
+    "content": "Needs more info next time"
+},
+{
+    "blogId": 3,
+    "userId": 8,
+    "content": "Hate it"
+},
+{
+    "blogId": 3,
+    "userId": 6,
+    "content": "Awesome"
+}
+]
