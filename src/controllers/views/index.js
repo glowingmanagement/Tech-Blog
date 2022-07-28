@@ -15,9 +15,14 @@ const renderDashboard = (req, res) => {
   return res.render("dashboard", { currentPage: "dashboard" });
 };
 
+const renderCreate = (req, res) => {
+  return res.render("create", { currentPage: "create" });
+};
+
 module.exports = {
   renderHomePage,
   renderLoginPage,
   renderSignupPage,
   renderDashboard,
+  renderCreate,
 };
