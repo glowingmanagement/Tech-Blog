@@ -50,7 +50,6 @@ const renderPost = async (req, res) => {
 
   const postData = getPostData[0];
   const author = postData["user.userName"];
-  console.log(postData["user.userName"]);
   return res.render("post", { currentPage: "post", postData, author });
 };
 

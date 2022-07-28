@@ -10,7 +10,7 @@ const addString = (string1, string2) => {
 
 const dateFormat = (date) => {
   const formattedDate = dateFns.format(new Date(date), "do MMMM, yyyy");
-  return `Created: ${formattedDate}`;
+  return `${formattedDate}`;
 };
 
 module.exports = {
