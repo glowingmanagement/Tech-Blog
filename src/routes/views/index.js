@@ -18,6 +18,6 @@ router.get("/login", renderLoginPage);
 router.get("/signup", renderSignupPage);
 router.get("/dashboard", auth, renderDashboard);
 router.get("/create", auth, renderCreate);
-router.get("/post/:id", auth, renderPost);
+router.get("/post/:id", renderPost);
 
 module.exports = router;

@@ -49,8 +49,9 @@ const renderPost = async (req, res) => {
   });
 
   const postData = getPostData[0];
-  console.log(postData);
-  return res.render("post", { currentPage: "post", postData });
+  const author = postData["user.userName"];
+  console.log(postData["user.userName"]);
+  return res.render("post", { currentPage: "post", postData, author });
 };
 
 module.exports = {
