@@ -1,0 +1,18 @@
+{{#if (isEqualTo userDetails.isLoggedIn true)}}
+    {{> privateNavbar}}
+{{else}}
+    {{>publicNavbar}}
+
+{{/if}}
+
+
+<main>
+    <div class="bg-light p-5 rounded-lg m-3">
+        <h1 class="display-4">{{postData.title}}</h1>
+        <p class="m-4">{{postData.description}}</p>
+        <hr class="my-4">
+        <h3 class="display-7">Comments</h3>
+        <a class="btn btn-primary btn-lg" href="/signup" role="button">Sign Up Now</a>
+    </div>
+
+</main>

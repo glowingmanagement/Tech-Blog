@@ -25,14 +25,14 @@
 
 <div class="bg-light p-5 rounded-lg m-3 ">
     <h2 class="display-6">Blog Posts</h2>
-    <div class="d-flex flex-wrap">
+    <div id="homePosts" class="d-flex flex-wrap">
         {{#each allPosts}}
         <div class="card m-3" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Created By:</p>
-                <p class="card-text">Created On:</p>
-                <a href="#" class="btn btn-primary">Read Now</a>
+                <h5 class="card-title">{{title}}</h5>
+                <p class="card-text">Author: {{user.userName}}</p>
+                <p class="card-text">{{dateFormat createdAt}}</p>
+                <button class="btn btn-primary" data-id={{id}}>Read Now</button>
             </div>
         </div>
         {{/each}}

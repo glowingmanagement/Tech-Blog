@@ -8,7 +8,6 @@ const renderHomePage = async (req, res) => {
     return post.get({ plain: true });
   });
 
-  console.log(allPosts);
   return res.render("home", { currentPage: "home", userDetails, allPosts });
 };
 
@@ -41,10 +40,24 @@ const renderCreate = (req, res) => {
   return res.render("create", { currentPage: "create" });
 };
 
+const renderPost = async (req, res) => {
+  const { id } = req.params;
+  const getPostData = await Blog.findAll({
+    where: { id },
+    include: [{ model: User }],
+    raw: true,
+  });
+
+  const postData = getPostData[0];
+  console.log(postData);
+  return res.render("post", { currentPage: "post", postData });
+};
+
 module.exports = {
   renderHomePage,
   renderLoginPage,
   renderSignupPage,
   renderDashboard,
   renderCreate,
+  renderPost,
 };

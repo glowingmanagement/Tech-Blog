@@ -1,6 +1,7 @@
 const createForm = $("#create-form");
 const updateForm = $("#update-form");
 const deletePost = $("#deletePost");
+const viewPost = $("#homePosts");
 
 const validate = (title, content) => {
   // See if values contain text
@@ -90,7 +91,14 @@ const handleUpdate = async (event) => {
   }
 };
 
+const handleView = (event) => {
+  const postId = $(event.target).data("id");
+
+  window.location.assign(`/post/${postId}`);
+};
+
 createForm.submit(handleCreate);
 // deletePost.click(handleDelete);
 $("#accordion").on("click", "a.btn-danger", handleDelete);
 $("#accordion").on("click", "button.update", handleUpdate);
+viewPost.on("click", "button.btn", handleView);
