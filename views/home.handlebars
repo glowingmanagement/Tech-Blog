@@ -1,6 +1,19 @@
-{{> publicNavbar}}
+{{#if (isEqualTo userDetails.isLoggedIn true)}}
+    {{> privateNavbar}}
 
-<main>
+    <main>
+    <div class="bg-light p-5 rounded-lg m-3">
+        <h1 class="display-4">Tech Blog!</h1>
+        <p class="lead">Welcome to the coding tech blog. Where you can read and create your own blog posts.</p>
+        <hr class="my-4">
+        <p>Visit your dashboard to create your own posts</p>
+        <a class="btn btn-primary btn-lg" href="/dashboard" role="button">View Dashboard</a>
+    </div>
+
+{{else}}
+    {{>publicNavbar}}
+
+    <main>
     <div class="bg-light p-5 rounded-lg m-3">
         <h1 class="display-4">Tech Blog!</h1>
         <p class="lead">Welcome to the coding tech blog. Where you can read and create your own blog posts.</p>
@@ -8,4 +21,7 @@
         <p>To be able to comment, create and have full access to the website, please sign up.</p>
         <a class="btn btn-primary btn-lg" href="/signup" role="button">Sign Up Now</a>
     </div>
+{{/if}}
+
+
 </main>

@@ -1,5 +1,6 @@
 const renderHomePage = (req, res) => {
-  return res.render("home", { currentPage: "home" });
+  const userDetails = req.session;
+  return res.render("home", { currentPage: "home", userDetails });
 };
 
 const renderLoginPage = (req, res) => {
