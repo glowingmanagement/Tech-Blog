@@ -65,6 +65,34 @@ const handleDelete = async (event) => {
   }
 };
 
+const handleUpdate = async (event) => {
+  event.preventDefault();
+  const postId = $(event.target).data("id");
+  const title = $("#updateTitle").val();
+  const content = $("#updateContent").val();
+
+  const payload = { title, content };
+
+  try {
+    const response = await fetch(`/api/blog/${postId}`, {
+      method: "PUT",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      window.location.reload();
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 createForm.submit(handleCreate);
 // deletePost.click(handleDelete);
 $("#accordion").on("click", "a.btn-danger", handleDelete);
+updateForm.click(handleUpdate);

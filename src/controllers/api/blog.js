@@ -17,7 +17,20 @@ const createPost = async (req, res) => {
   }
 };
 
-const updatePost = () => {};
+const updatePost = async (req, res) => {
+  const { id } = req.params;
+  const { title, content } = req.body;
+
+  try {
+    await Blog.update({ title, description: content }, { where: { id } });
+
+    return res.json({ success: true });
+  } catch (error) {
+    console.log(`[ERROR]: Failed to create post| ${error}`);
+
+    return res.status(500).json({ success: false });
+  }
+};
 
 const deletePost = async (req, res) => {
   const { id } = req.params;
