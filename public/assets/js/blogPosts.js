@@ -2,6 +2,7 @@ const createForm = $("#create-form");
 const updateForm = $("#update-form");
 const deletePost = $("#deletePost");
 const viewPost = $("#homePosts");
+const postComment = $("#postComment");
 
 const validate = (title, content) => {
   // See if values contain text
@@ -97,8 +98,35 @@ const handleView = (event) => {
   window.location.assign(`/post/${postId}`);
 };
 
+const handlePostComment = async (event) => {
+  event.preventDefault();
+  const content = $("#commentContent").val();
+  const postId = $(event.target).data("id");
+  console.log(postId);
+
+  const payload = { content, postId };
+
+  try {
+    const response = await fetch(`/api/comments/`, {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+
+    if (data.success) {
+      window.location.reload();
+    }
+  } catch {
+    renderError("comment-error", "Failed to post comment. Please try again");
+  }
+};
+
 createForm.submit(handleCreate);
 // deletePost.click(handleDelete);
 $("#accordion").on("click", "a.btn-danger", handleDelete);
 $("#accordion").on("click", "button.update", handleUpdate);
 viewPost.on("click", "button.btn", handleView);
+postComment.submit(handlePostComment);

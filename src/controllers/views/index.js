@@ -48,6 +48,8 @@ const renderPost = async (req, res) => {
     raw: true,
   });
 
+  const getComments = await Comments.findAll({ where: { blogId: id } });
+
   const postData = getPostData[0];
   const author = postData["user.userName"];
   return res.render("post", { currentPage: "post", postData, author });
