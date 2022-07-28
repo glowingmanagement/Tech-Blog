@@ -1,4 +1,5 @@
 const createForm = $("#create-form");
+const updateForm = $("#update-form");
 const deletePost = $("#deletePost");
 
 const validate = (title, content) => {

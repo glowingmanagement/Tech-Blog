@@ -20,16 +20,52 @@
                         <div id="test" class="card-footer text-muted">
                             Created: {{createdAt}} <br/>
                             Updated: {{updatedAt}} <br/>
-                            <a href="/create" class="btn btn-primary">Edit</a>
+                            <a href="/create" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">Edit</a>
                             <a id="deletePost" class="btn btn-danger" data-id={{id}}>Delete</a>
                         </div>
                     </div>
 
                     </div>
                 </div>
+
+                <div id="editModal" class="modal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <form class="mt-4" id="update-form"></form>
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit Post</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                    <div class="mb-3">
+                                        <input
+                                        type="text"
+                                        class="form-control"
+                                        id="updateTitle"
+                                        value={{title}}
+                                        />
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control" aria-label="With textarea" id="updateContent">{{description}}</textarea>
+                                    </div>
+                                        <div id="blog-error"></div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" data-id={{id}}>Save changes</button>
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             {{/each}}
             </div>
         </section>
+
+
+
 
 
         <div class="card-footer fixed-bottom">
