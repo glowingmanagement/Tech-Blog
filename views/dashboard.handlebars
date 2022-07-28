@@ -17,11 +17,12 @@
                     <div id={{addString "post" id}} class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion">
                     <div class="accordion-body">
                         {{description}}
-                          <div class="card-footer text-muted">
+                        <div id="test" class="card-footer text-muted">
                             Created: {{createdAt}} <br/>
                             Updated: {{updatedAt}} <br/>
                             <a href="/create" class="btn btn-primary">Edit</a>
-                            </div>
+                            <a id="deletePost" class="btn btn-danger" data-id={{id}}>Delete</a>
+                        </div>
                     </div>
 
                     </div>

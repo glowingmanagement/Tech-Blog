@@ -19,7 +19,18 @@ const createPost = async (req, res) => {
 
 const updatePost = () => {};
 
-const deletePost = () => {};
+const deletePost = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await Blog.destroy({ where: { id } });
+
+    return res.json({ success: true });
+  } catch (error) {
+    console.log(`[ERROR]: Failed to delete post| ${error}`);
+
+    return res.status(500).json({ success: false });
+  }
+};
 
 const getAllPosts = () => {};
 

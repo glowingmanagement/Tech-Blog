@@ -1,4 +1,5 @@
 const createForm = $("#create-form");
+const deletePost = $("#deletePost");
 
 const validate = (title, content) => {
   // See if values contain text
@@ -42,4 +43,27 @@ const handleCreate = async (event) => {
   }
 };
 
+const handleDelete = async (event) => {
+  const postId = $(event.target).data("id");
+
+  try {
+    const response = await fetch(`/api/blog/${postId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      window.location.reload();
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 createForm.submit(handleCreate);
+// deletePost.click(handleDelete);
+$("#accordion").on("click", "a.btn-danger", handleDelete);
