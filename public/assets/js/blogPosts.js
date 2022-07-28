@@ -68,8 +68,8 @@ const handleDelete = async (event) => {
 const handleUpdate = async (event) => {
   event.preventDefault();
   const postId = $(event.target).data("id");
-  const title = $("#updateTitle").val();
-  const content = $("#updateContent").val();
+  const title = $(`#updateTitle${postId}`).val();
+  const content = $(`#updateContent${postId}`).val();
 
   const payload = { title, content };
 
@@ -81,9 +81,7 @@ const handleUpdate = async (event) => {
         "Content-Type": "application/json",
       },
     });
-
     const data = await response.json();
-
     if (data.success) {
       window.location.reload();
     }
@@ -95,4 +93,4 @@ const handleUpdate = async (event) => {
 createForm.submit(handleCreate);
 // deletePost.click(handleDelete);
 $("#accordion").on("click", "a.btn-danger", handleDelete);
-updateForm.click(handleUpdate);
+$("#accordion").on("click", "button.update", handleUpdate);

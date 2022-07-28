@@ -42,19 +42,19 @@
                                         <input
                                         type="text"
                                         class="form-control"
-                                        id="updateTitle"
+                                        id={{addString "updateTitle" id}}
                                         value={{title}}
                                         />
                                     </div>
                                     <div class="input-group mb-3">
-                                        <textarea class="form-control" aria-label="With textarea" id="updateContent">{{description}}</textarea>
+                                        <textarea class="form-control" aria-label="With textarea" id={{addString "updateContent" id}}>{{description}}</textarea>
                                     </div>
                                         <div id="blog-error"></div>
 
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" id="update-form" class="btn btn-primary" data-id={{id}}>Save changes</button>
+                                <button type="submit" id="update-form" class="btn btn-primary update" data-id={{id}}>Save changes</button>
                             </div>
                             </div>
                         </form>
