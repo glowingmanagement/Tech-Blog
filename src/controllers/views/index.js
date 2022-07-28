@@ -1,8 +1,15 @@
 const { Comments, Blog, User } = require("../../models");
 
-const renderHomePage = (req, res) => {
+const renderHomePage = async (req, res) => {
   const userDetails = req.session;
-  return res.render("home", { currentPage: "home", userDetails });
+  const allPosts = await (
+    await Blog.findAll({ include: [{ model: User }] })
+  ).map((post) => {
+    return post.get({ plain: true });
+  });
+
+  console.log(allPosts);
+  return res.render("home", { currentPage: "home", userDetails, allPosts });
 };
 
 const renderLoginPage = (req, res) => {

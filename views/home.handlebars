@@ -23,5 +23,24 @@
     </div>
 {{/if}}
 
+<div class="bg-light p-5 rounded-lg m-3 ">
+    <h2 class="display-6">Blog Posts</h2>
+    <div class="d-flex flex-wrap">
+        {{#each allPosts}}
+        <div class="card m-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Created By:</p>
+                <p class="card-text">Created On:</p>
+                <a href="#" class="btn btn-primary">Read Now</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+
+
+
 
 </main>
