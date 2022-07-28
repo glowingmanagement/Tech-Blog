@@ -102,25 +102,28 @@ const handlePostComment = async (event) => {
   event.preventDefault();
   const content = $("#commentContent").val();
   const postId = $(event.target).data("id");
-  console.log(postId);
-
+  const isContent = content.replace(/\s/g, "");
   const payload = { content, postId };
 
-  try {
-    const response = await fetch(`/api/comments/`, {
-      method: "POST",
-      body: JSON.stringify(payload),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await response.json();
+  if (isContent) {
+    try {
+      const response = await fetch(`/api/comments/`, {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
 
-    if (data.success) {
-      window.location.reload();
+      if (data.success) {
+        window.location.reload();
+      }
+    } catch {
+      renderError("comment-error", "Failed to post comment. Please try again");
     }
-  } catch {
-    renderError("comment-error", "Failed to post comment. Please try again");
+  } else {
+    renderError("comment-error", "Please enter some text to post");
   }
 };
 

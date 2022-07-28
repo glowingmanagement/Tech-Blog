@@ -41,6 +41,7 @@ const renderCreate = (req, res) => {
 };
 
 const renderPost = async (req, res) => {
+  const userDetails = req.session;
   const { id } = req.params;
   const getPostData = await Blog.findAll({
     where: { id },
@@ -48,11 +49,31 @@ const renderPost = async (req, res) => {
     raw: true,
   });
 
-  const getComments = await Comments.findAll({ where: { blogId: id } });
+  const getComments = await (
+    await Comments.findAll({
+      where: { blogId: id },
+      include: [{ model: User }],
+    })
+  ).map((post) => {
+    return post.get({ plain: true });
+  });
+
+  console.log(getComments);
 
   const postData = getPostData[0];
   const author = postData["user.userName"];
-  return res.render("post", { currentPage: "post", postData, author });
+  return res.render("post", {
+    currentPage: "post",
+    postData,
+    author,
+    getComments,
+    userDetails,
+  });
+};
+
+const sortComment = (comment) => {
+  const { content, createdAt } = comment;
+  return {};
 };
 
 module.exports = {

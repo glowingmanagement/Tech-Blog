@@ -14,24 +14,29 @@
         <p class="fs-8">Created: {{dateFormat postData.createdAt}}</p>
         <hr class="my-4">
         <h3 class="display-7">Comments</h3>
-{{!-- open each --}}
+        {{#each getComments}}
         <div class="card p-3">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="user d-flex flex-row align-items-center">
-                    <span><small class="font-weight-bold text-primary">james_olesenn</small> <small class="font-weight-bold">Hmm, This poster looks cool</small></span>
+                    <span><small class="font-weight-bold text-primary">{{user.userName}}</small> <small class="font-weight-bold">{{content}}</small></span>
                 </div>
-                <small>2 days ago</small>
+                <small>{{dateFormat createdAt}}</small>
             </div>
         </div>
-        {{!-- close each --}}
+        {{/each}}
+
         <div class="card p-3">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="col-sm-10 align-items-center">
+                    {{#if (isEqualTo userDetails.isLoggedIn true)}}
                     <form id="postComment" data-id={{postData.id}}>
                         <input type="text" id="commentContent" class="form-control" placeholder="Comment" aria-label="Comment" aria-describedby="addon-wrapping">
                         <div id="comment-error"></div>
                         <button type="submit" class="btn btn-outline-success m-3">Post</button>
                     </form>
+                    {{else}}
+                    <a href="/signup" class="btn btn-outline-primary m-3">Sign up to comment</a>
+                    {{/if}}
                 </div>
             </div>
         </div>
