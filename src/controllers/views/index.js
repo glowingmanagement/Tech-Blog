@@ -1,3 +1,5 @@
+const { Comments, Blog, User } = require("../../models");
+
 const renderHomePage = (req, res) => {
   const userDetails = req.session;
   return res.render("home", { currentPage: "home", userDetails });
@@ -11,8 +13,21 @@ const renderSignupPage = (req, res) => {
   return res.render("signup", { currentPage: "signup" });
 };
 
-const renderDashboard = (req, res) => {
-  return res.render("dashboard", { currentPage: "dashboard" });
+const renderDashboard = async (req, res) => {
+  let userPosts;
+  try {
+    const userId = req.session.user.id;
+    userPosts = await (
+      await Blog.findAll({ where: { userId } })
+    ).map((post) => {
+      return post.get({ plain: true });
+    });
+  } catch (error) {
+    console.log(`[ERROR]: Failed to get ads | ${error.message}`);
+    return res.status(500).json({ error: "Failed to get posts" });
+  }
+
+  return res.render("dashboard", { currentPage: "dashboard", userPosts });
 };
 
 const renderCreate = (req, res) => {
