@@ -1,0 +1,75 @@
+{{> privateNavbar}}
+
+
+<main>
+    <div class="card text-center">
+        <section class="mt-4 border p-3 rounded-2 bg-light">
+            <h2 class="text-center">Your Posts</h2>
+            <hr />
+            <div class="accordion" id="accordion">
+            {{#each userPosts}}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id={{id}}>
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={{addString "#post" id}} aria-expanded="false" aria-controls={{addString "post" id}}>
+                        <h4>{{title}}</h3>
+                    </button>
+                    </h2>
+                    <div id={{addString "post" id}} class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion">
+                    <div class="accordion-body">
+                        {{description}}
+                        <div id="test" class="card-footer text-muted">
+                            Created: {{createdAt}} <br/>
+                            Updated: {{updatedAt}} <br/>
+                            <a href="/create" class="btn btn-primary" data-bs-toggle="modal" data-bs-target={{addString "#modal" id}}>Edit</a>
+                            <a id="deletePost" class="btn btn-danger" data-id={{id}}>Delete</a>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+
+                <div id={{addString "modal" id}} class="modal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <form class="mt-4" ></form>
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit Post</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                    <div class="mb-3">
+                                        <input
+                                        type="text"
+                                        class="form-control"
+                                        id={{addString "updateTitle" id}}
+                                        value={{title}}
+                                        />
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control" aria-label="With textarea" id={{addString "updateContent" id}}>{{description}}</textarea>
+                                    </div>
+                                        <div id="blog-error"></div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" id="update-form" class="btn btn-primary update" data-id={{id}}>Save changes</button>
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            {{/each}}
+            </div>
+        </section>
+
+
+
+
+
+        <div class="card-footer fixed-bottom">
+            <a href="/create" class="btn btn-primary">+ Create New Blog Post</a>
+        </div>
+    </div>
+</main>

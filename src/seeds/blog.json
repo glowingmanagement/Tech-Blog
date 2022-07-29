@@ -1,0 +1,22 @@
+[
+    {
+        "userId": 1,
+        "title": "HTML Text",
+        "description": "The HTML <strong> element defines text with strong importance. The content inside is typically displayed in bold."
+    },
+    {
+        "userId": 4,
+        "title": "What is CSS",
+        "description": "Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML or XML."
+    },
+    {
+        "userId": 1,
+        "title": "What is Javascript",
+        "description": "JavaScript is a scripting or programming language that allows you to implement complex features on web pages."
+    },
+    {
+        "userId": 2,
+        "title": "What is Python",
+        "description": "Python is an interpreted, object-oriented, high-level programming language with dynamic semantics."
+    }
+]

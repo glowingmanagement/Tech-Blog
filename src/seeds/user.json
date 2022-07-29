@@ -1,0 +1,72 @@
+[
+    {
+        "firstName": "Ed",
+        "lastName": "Sheeran",
+        "password": "password",
+        "email": "edsheeran@email.com",
+        "userName": "eddySheeran"
+    },
+    {
+        "firstName": "Justin",
+        "lastName": "Bieber",
+        "password": "password",
+        "email": "justin@email.com",
+        "userName": "justinBieber"
+    },
+    {
+        "firstName": "Harry",
+        "lastName": "Styles",
+        "password": "password",
+        "email": "harry@email.com",
+        "userName": "harryStyles"
+    },
+    {
+        "firstName": "Dua",
+        "lastName": "Lipa",
+        "password": "password",
+        "email": "dua@email.com",
+        "userName": "duaLipa"
+    },
+    {
+        "firstName": "Taylor",
+        "lastName": "Swift",
+        "password": "password",
+        "email": "taylor@email.com",
+        "userName": "taylorSwift"
+    },
+    {
+        "firstName": "Shawn",
+        "lastName": "Mendes",
+        "password": "password",
+        "email": "shawn@email.com",
+        "userName": "shawnMendes"
+    },
+    {
+        "firstName": "Calvin",
+        "lastName": "Harris",
+        "password": "password",
+        "email": "calvin@email.com",
+        "userName": "calvinHarris"
+    },
+    {
+        "firstName": "Dave",
+        "lastName": "Smith",
+        "password": "password",
+        "email": "dave@email.com",
+        "userName": "daveSmith"
+    },
+    {
+        "firstName": "George",
+        "lastName": "Ezra",
+        "password": "password",
+        "email": "george@email.com",
+        "userName": "georgeEzra"
+    },
+    {
+        "firstName": "Charlie",
+        "lastName": "Puth",
+        "password": "password",
+        "email": "charlie@email.com",
+        "userName": "charliePuth"
+    }
+]
