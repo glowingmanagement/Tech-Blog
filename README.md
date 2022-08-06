@@ -1,4 +1,4 @@
-# Buddy Up
+# Tech Blog
 
 An application where users can log in to view, create, edit and delete blog posts. As well as comment on a post. If a user isn't logged in, then posts can still be viewed but the user won't be able to create posts or comments.
 
